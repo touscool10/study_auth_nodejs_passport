@@ -13,7 +13,8 @@ export const register = async (req: Request, res: Response) => {
     if(req.body.email && req.body.password) {
         let { email, password } = req.body;
 
-        let hasUser = await User.findOne({where: { email }});
+        let hasUser 
+        = await User.findOne({where: { email }});
         if(!hasUser) {
             let newUser = await User.create({ email, password });
 
